@@ -1,6 +1,7 @@
 import { BodyText, CodeText, Link, SubheaderText } from 'components/Text'
 import { useSnapshot } from 'valtio'
 import MerkleTree from 'merkletreejs'
+import SuspenseWithError from 'components/SuspenseWithError'
 import classnames, {
   listStylePosition,
   listStyleType,
@@ -61,7 +62,9 @@ export default function Addresses() {
       {addresses.length ? (
         <>
           <AddressesList />
-          <MerkleTreeVisualization />
+          <SuspenseWithError error="Error rendering Merkle tree">
+            <MerkleTreeVisualization />
+          </SuspenseWithError>
         </>
       ) : (
         <BodyText>No addresses allowed yet.</BodyText>

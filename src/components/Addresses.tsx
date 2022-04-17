@@ -8,6 +8,7 @@ import classnames, {
   wordBreak,
 } from 'classnames/tailwind'
 import data from 'helpers/data'
+import keccak256 from 'keccak256'
 
 const list = classnames(
   listStyleType('list-decimal'),
@@ -38,7 +39,7 @@ const merkleTreeString = classnames(
 
 function MerkleTreeVisualization() {
   const { addresses } = useSnapshot(data)
-  const merkleTree = new MerkleTree([...addresses], undefined, {
+  const merkleTree = new MerkleTree([...addresses], keccak256, {
     sortPairs: true,
     hashLeaves: true,
   })

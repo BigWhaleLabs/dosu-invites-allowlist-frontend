@@ -1,4 +1,5 @@
 import { HeaderText } from 'components/Text'
+import AddAddress from 'components/AddAddress'
 import Addresses from 'components/Addresses'
 import ContractAddress from 'components/ContractAddress'
 import Loading from 'components/Loading'
@@ -14,6 +15,7 @@ export default function MainBlock() {
       >
         <ContractAddress />
       </SuspenseWithError>
+      <AddAddress />
       <SuspenseWithError
         error="Error fetching allowlist!"
         loading={<Loading />}

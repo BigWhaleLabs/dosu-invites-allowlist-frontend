@@ -1,7 +1,13 @@
 import { getAddresses, getContractAddress } from 'helpers/api'
 import { proxy } from 'valtio'
 
-export default proxy({
+const data = proxy({
   contractAddress: getContractAddress(),
   addresses: getAddresses(),
 })
+
+export function refreshData() {
+  data.addresses = getAddresses()
+}
+
+export default data

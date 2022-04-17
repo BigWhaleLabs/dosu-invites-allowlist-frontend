@@ -1,15 +1,12 @@
-import LanguageButtons from 'components/LanguageButtons'
-import LocalizationProvider from 'localization/LocalizationProvider'
+import { ToastContainer } from 'react-toastify'
 import MainBlock from 'components/MainBlock'
 import Root from 'components/Root'
 
 const App = () => {
   return (
     <Root>
-      <LocalizationProvider>
-        <MainBlock />
-        <LanguageButtons />
-      </LocalizationProvider>
+      <MainBlock />
+      <ToastContainer theme="dark" />
     </Root>
   )
 }

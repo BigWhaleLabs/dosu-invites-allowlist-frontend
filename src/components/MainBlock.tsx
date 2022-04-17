@@ -1,15 +1,25 @@
-import { BodyText } from 'components/Text'
-import useLocalize from 'localization/useTypedLocalize'
-import useUserCount from 'hooks/useUserCount'
+import { HeaderText } from 'components/Text'
+import Addresses from 'components/Addresses'
+import ContractAddress from 'components/ContractAddress'
+import Loading from 'components/Loading'
+import SuspenseWithError from 'components/SuspenseWithError'
 
 export default function MainBlock() {
-  const { userCount } = useUserCount()
-  const { translate } = useLocalize()
-
   return (
     <>
-      <BodyText>{translate('userCount', { count: userCount || '~' })}</BodyText>
-      <BodyText>{translate('title')}</BodyText>
+      <HeaderText>Dosu Invites admin panel</HeaderText>
+      <SuspenseWithError
+        error="Error fetching contract address!"
+        loading={<Loading />}
+      >
+        <ContractAddress />
+      </SuspenseWithError>
+      <SuspenseWithError
+        error="Error fetching allowlist!"
+        loading={<Loading />}
+      >
+        <Addresses />
+      </SuspenseWithError>
     </>
   )
 }

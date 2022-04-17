@@ -1,5 +1,6 @@
 import { BodyText, CodeText, Link, SubheaderText } from 'components/Text'
 import { useSnapshot } from 'valtio'
+import { utils } from 'ethers'
 import MerkleTree from 'merkletreejs'
 import SuspenseWithError from 'components/SuspenseWithError'
 import classnames, {
@@ -9,7 +10,6 @@ import classnames, {
   wordBreak,
 } from 'classnames/tailwind'
 import data from 'helpers/data'
-import keccak256 from 'keccak256'
 
 const list = classnames(
   listStyleType('list-decimal'),
@@ -40,7 +40,7 @@ const merkleTreeString = classnames(
 
 function MerkleTreeVisualization() {
   const { addresses } = useSnapshot(data)
-  const merkleTree = new MerkleTree([...addresses], keccak256, {
+  const merkleTree = new MerkleTree([...addresses], utils.keccak256, {
     sortPairs: true,
     hashLeaves: true,
   })

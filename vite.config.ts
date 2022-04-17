@@ -28,15 +28,9 @@ export default defineConfig({
       },
       plugins: [
         GlobalsPolyfills({
-          process: true,
           buffer: true,
         }),
       ],
-    },
-  },
-  resolve: {
-    alias: {
-      stream: 'stream-browserify',
     },
   },
 })

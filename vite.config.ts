@@ -28,6 +28,7 @@ export default defineConfig({
       },
       plugins: [
         GlobalsPolyfills({
+          process: true,
           buffer: true,
         }),
       ],

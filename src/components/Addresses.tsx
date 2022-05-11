@@ -23,7 +23,7 @@ function AddressesList() {
       <ol className={list}>
         {addresses.map((address) => (
           <li key={address}>
-            <Link url={`https://ropsten.etherscan.io/address/${address}`}>
+            <Link url={`https://rinkeby.etherscan.io/address/${address}`}>
               {address}
             </Link>
           </li>

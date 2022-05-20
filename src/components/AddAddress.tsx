@@ -25,7 +25,7 @@ const form = classnames(
 
 const textField = classnames(padding('p-2'), flexGrow('grow'), margin('my-2'))
 
-export default function AddAddress() {
+export default function () {
   const [addresses, setAddresses] = useState('')
   const [addressIsValid, setAddressIsValid] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -44,7 +44,7 @@ export default function AddAddress() {
           className={textField}
           type="text"
           placeholder="Address"
-          onChange={(e) => setAddresses(e.target.value)}
+          onChange={(e) => setAddresses(e.currentTarget.value)}
           value={addresses}
           disabled={loading}
         />

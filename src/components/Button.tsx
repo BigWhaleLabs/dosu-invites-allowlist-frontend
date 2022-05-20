@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import {
   alignItems,
   backgroundColor,
@@ -8,15 +7,12 @@ import {
   classnames,
   cursor,
   display,
-  flex,
   flexDirection,
   fontWeight,
-  justifyContent,
   margin,
   opacity,
   outlineStyle,
   padding,
-  space,
   textColor,
 } from 'classnames/tailwind'
 import Spinner from 'components/Spinner'
@@ -51,7 +47,7 @@ const button = (disabled?: boolean, loading?: boolean) =>
     disabled || loading ? opacity('opacity-50') : undefined,
     disabled || loading ? cursor('cursor-not-allowed') : undefined
   )
-const Button: FC<ButtonProps> = ({ onClick, title, disabled, loading }) => {
+export default function ({ onClick, title, disabled, loading }: ButtonProps) {
   return (
     <button
       className={button(disabled, loading)}
@@ -63,5 +59,3 @@ const Button: FC<ButtonProps> = ({ onClick, title, disabled, loading }) => {
     </button>
   )
 }
-
-export default Button

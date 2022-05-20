@@ -54,7 +54,7 @@ function MerkleTreeVisualization() {
   )
 }
 
-export default function Addresses() {
+export default function () {
   const { addresses } = useSnapshot(data)
   return (
     <>

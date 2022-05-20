@@ -1,4 +1,7 @@
-const baseUrl = import.meta.env.VITE_APP_BACKEND_URL
+import env from 'helpers/env'
+
+const baseUrl = env.VITE_APP_BACKEND_URL
+const password = env.VITE_APP_PASSWORD
 
 export function getContractAddress() {
   return fetch(`${baseUrl}/contract-address`).then((res) =>
@@ -16,7 +19,7 @@ export function addAddress(addresses: string) {
   return fetch(`${baseUrl}/allowlist`, {
     method: 'POST',
     headers: {
-      password: import.meta.env.VITE_APP_PASSWORD,
+      password,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -29,7 +32,7 @@ export function updateMerkleRoot() {
   return fetch(`${baseUrl}/merkle-tree`, {
     method: 'PUT',
     headers: {
-      password: import.meta.env.VITE_APP_PASSWORD,
+      password,
     },
   })
 }
